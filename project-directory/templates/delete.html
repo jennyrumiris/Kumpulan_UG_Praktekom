@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hapus Mahasiswa</title>
+</head>
+<body>
+    <h1>Hapus Data Mahasiswa</h1>
+    <form method="POST" action="{{ url_for('delete_mahasiswa') }}">
+        <label for="nim">Masukkan NIM:</label>
+        <input type="text" name="nim" id="nim" required>
+        <button type="submit">Hapus</button>
+    </form>
+    <a href="{{ url_for('mhslist') }}">Kembali ke Daftar Mahasiswa</a>
+</body>
+</html>

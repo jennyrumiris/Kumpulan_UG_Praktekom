@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Mahasiswa</title>
+</head>
+<body>
+    <h1>Daftar Mahasiswa</h1>
+
+    <!-- Tombol Tambah Mahasiswa -->
+    <a href="{{ url_for('add_mahasiswa') }}" style="display: inline-block; margin-bottom: 10px;">
+        <button>Tambah Mahasiswa</button>
+    </a>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>NIM</th>
+                <th>Nama</th>
+                <th>Tempat Lahir</th>
+                <th>Tanggal Lahir</th>
+                <th>Alamat</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+                <td>{{ row[4] }}</td>
+                <td>
+                    <a href="{{ url_for('update_mahasiswa', nim=row[0]) }}" class="btn">Ubah</a>
+                    <a href="{{ url_for('delete_mahasiswa') }}" class="btn">Hapus</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
